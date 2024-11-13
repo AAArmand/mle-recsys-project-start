@@ -120,7 +120,8 @@ celerybeat.pid
 *.npz
 # SageMath parsed files
 *.sage.py
-
+catboost*
+*.pkl
 # Environments
 .env
 .venv*
