@@ -18,17 +18,17 @@ class RecSysHeandler:
             "top_popular_data": None
             }
         
-        self.load_rec_file(hendler='als_data',file_path='recommendations.parquet',index="user_id")
-        self.load_rec_file(hendler='similar_item_data',file_path='similar.parquet',index="main_item_id")
-        self.load_rec_file(hendler='top_popular_data',file_path='top_popular.parquet',index="item_id")
+        self.load_rec_file(handler='als_data',file_path='recommendations.parquet',index="user_id")
+        self.load_rec_file(handler='similar_item_data',file_path='similar.parquet',index="main_item_id")
+        self.load_rec_file(handler='top_popular_data',file_path='top_popular.parquet',index="item_id")
         
         self._recs['top_popular_data'] = self._recs['top_popular_data'].sort_values(by='popularity_weighted')[0:100].copy()
 
         logging.info(msg='Class ' + __name__ + ' init')
     
-    def load_rec_file(self,hendler: str,file_path: str,index: str,**kwargs):
-        self._recs[hendler] = self.load_df(file_path=file_path,**kwargs)
-        self._recs[hendler] = self._recs[hendler].set_index(index)
+    def load_rec_file(self,handler: str,file_path: str,index: str,**kwargs):
+        self._recs[handler] = self.load_df(file_path=file_path,**kwargs)
+        self._recs[handler] = self._recs[handler].set_index(index)
 
     
     def load_df(self,file_path: str, **kwargs) -> pd.DataFrame:
