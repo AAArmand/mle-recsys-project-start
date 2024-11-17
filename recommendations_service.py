@@ -2,11 +2,11 @@ import logging
 
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from recsys_handler import RecSysHeandler
+from recsys_handler import RecSysHandler
 from events_store import EventStore
 import random
 
-rec_store = RecSysHeandler()
+rec_store = RecSysHandler()
 events_store = EventStore()
 
 @asynccontextmanager

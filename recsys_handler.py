@@ -1,11 +1,11 @@
 import pandas as pd
 import logging
 
-class RecSysHeandler:
+class RecSysHandler:
 
     def __init__ (self):
         """
-        Класс RecSysHeandler иницаализирует файлы рекомендаций
+        Класс RecSysHandler инициализирует файлы рекомендаций
         """
         self._stats = {
             "personal_count": 0,
